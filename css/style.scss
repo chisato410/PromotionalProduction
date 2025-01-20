@@ -786,7 +786,7 @@ header.transparent , .contactPage header{
 .mv{
     padding-top: (120em/16);
     @include m-query(PC){
-        @include m-flex(flex-start , center);
+        @include m-flex(stretch , center);
     }
 
     &__img {
@@ -939,12 +939,9 @@ header.transparent , .contactPage header{
     &__img{
         background-color: #934D4D;
         padding-bottom: (84.8em/16);
-        // 1226px
-        @include m-query($breakpoint:1226px){
-            padding-bottom: (100em/16);
         }
-    }
 }
+
 
 #photo .price{
     padding-top: (120em/16);

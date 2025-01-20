@@ -743,7 +743,7 @@ header.transparent, .contactPage header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
   }
 }
 .mv__img {
