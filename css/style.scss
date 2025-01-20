@@ -1,0 +1,1684 @@
+@charset "utf-8";
+
+/* color */
+$color-bg: #F0DCC8;
+$color-sub: #5F4C45;
+$color-photo: #934D4D;
+$color-trade: #D0AC7F;
+$color-contest: #C47A5A;
+$color-dubbing: #96A385;
+
+
+/* mixin base */
+$breakpoints: (
+    "SP": "(350px <= width)",
+    "TB": "(700px <= width)",
+    "PC": "(1100px <= width)",
+    "else": "(1200px <= width)",
+) !default;
+
+
+@mixin m-query($breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+@mixin m-inner($w: (350/390)*100%, $mw: 1200px) {
+    width: $w;
+    max-width: $mw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@mixin m-flex($a: center, $j: space-between) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $j;
+    align-items: $a;
+}
+
+
+@function f-rem($value) {
+    @return ($value/16)+rem;
+}
+
+/* mixin plus */
+@mixin m-title-main(){
+    font-family: "Zen Maru Gothic", "serif";
+    font-size: f-rem(28.8);
+    line-height: (43.2/28.8);
+    letter-spacing: (10em/100);
+    margin-bottom: (30em/28.8);
+}
+
+
+/* base */
+body{
+    font-size: f-rem(16);
+    font-weight: normal;
+    letter-spacing: 0.05em;
+    line-height: (24/16);
+    color: #28201d;
+    background-color:  $color-bg;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+
+/* btn */
+.btn{
+    display: block;
+    text-align: center;
+    line-height: 1;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: (15em/16) (20em/16);
+
+    &--service{
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+        border: $color-sub 2px solid;
+        box-shadow: 0 4px 0 #2f2923;
+        background-color: #FFF4EA;
+        margin-top: (120em/16);
+        &:hover {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+    }
+}
+
+/* header */
+.header {
+    color: $color-sub;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff2e5;
+    transition: background-color 0.3s;
+
+    &__inner {
+        @include m-inner();
+        @include m-flex();
+    }
+}
+
+header.transparent , .contactPage header{
+    background-color: rgba(255, 242, 229, 0.8);
+}
+
+/* header nav全体 */
+.header__nav {
+    position: relative;
+}
+
+.header .nav {
+    background-color: #fff2e5;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70%;
+    height: 100vh;
+    z-index: 1500;
+    transform: translateX(100%);
+    /* 初期状態で右に隠す */
+    transition: transform .3s ease;
+    overflow-y: scroll;
+
+    @include m-query(TB) {
+        width: 50%;
+    }
+
+    @include m-query(PC) {
+        /* PCではスライドインなし */
+        display: contents;
+        position: relative;
+        width: auto;
+        height: auto;
+        flex-direction: row;
+        background-color: unset;
+        overflow-y: visible;
+    }
+
+    &.openMenu {
+        transform: translateX(0);
+        /* 開くときにスライドイン */
+    }
+
+    &--hidden {
+        display: none;
+        /* 初期状態で非表示にするクラス */
+    }
+
+    &__list {
+        @include m-flex(flex-start);
+        flex-direction: column;
+        gap: 0;
+        margin: (160em/16) 0 0 (30em/16);
+
+        @include m-query(PC) {
+            flex-direction: row;
+            gap: 15px;
+            margin: 0 0 0 (30em/16);
+        }
+    }
+
+    &__item {
+        position: relative;
+        margin-bottom: (15em/16);
+    }
+
+    &__item a {
+        display: block;
+        padding: 10px 15px;
+        transition: 0.3s;
+    }
+
+    &__item a:hover {
+        scale: 1.1;
+    }
+
+    &__top{
+        font-weight: bold;
+    }
+
+    /* サブメニュー (モバイル用: 初期非表示) */
+    &__sub {
+        flex-direction: column;
+        padding-left: 15px;
+        font-weight: normal;
+
+        @include m-query(PC) {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #FFF2E5;
+            border: 1px solid $color-sub;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+    }
+
+    &__sub .nav__item a {
+        white-space: nowrap;
+        padding: 10px 20px;
+    }
+
+    @include m-query(PC){
+        &__item.parent:hover .nav__sub {
+            display: block;
+            /* ホバー時にサブメニュー表示 */
+        }
+    }
+}
+
+/* header メニューのボタン */
+.header__menu {
+    font-weight: bold;
+    width: 100px;
+    text-align: center;
+    background-color: $color-bg;
+    color: $color-sub;
+    border: 1px solid $color-sub;
+    border-radius: 25px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+    @include m-query(PC) {
+        display: none;
+        /* PCではメニューボタン非表示 */
+    }
+
+    &:hover {
+        background-color: $color-sub;
+        color: $color-bg;
+    }
+}
+
+
+/* footer */
+.footer{
+    color: #FFF2E5;
+    background-color: $color-sub;
+    padding: (80em/16) 0;
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__item{
+        @include m-query(PC){
+            @include m-flex(flex-start);
+        }
+    }
+
+    &__info{
+        text-align: center;
+
+        @include m-query(PC){
+            text-align: left;
+            width: (330/1220)*100%;
+        }
+
+        p{
+            margin-top: (30em/16);
+        }
+
+    }
+
+    &__sns {
+        @include m-flex(center, center);
+
+        @include m-query(PC){
+            @include m-flex(center , flex-start);
+        }
+
+        a{
+            display: block;
+            margin: (30em/16) (30em/16) 0 0;
+            @include m-query(PC){}
+            text-align: left;
+        }
+    }
+
+    /* コンタクトボタン */
+    &__contact {
+        width: 100px;
+        height: auto;
+        position: fixed;
+        right: 20px;
+        bottom: 25px;
+        margin: (60em/16) auto auto;
+
+        &--sp{
+            @include m-query(PC){
+                display: none;
+            }
+            &:hover{
+                color: #FFF4EA;
+            }
+
+            // span{
+            //     writing-mode: vertical-rl;
+            //     text-orientation: upright;
+            // }
+        }
+
+        &--pc{
+            display: none;
+
+            @include m-query(PC){
+                width: 250px;
+                display: block;
+            }
+        }
+    }
+
+    &__balloon {
+        width: 280px;
+        height: 30px;
+        padding-left: 0.1em;
+        border-radius: 20px;
+        border: solid 2px #96A385;
+        background-color: #fff4ea;
+        text-align: center;
+        @include m-flex(center, center);
+        position: absolute;
+        bottom: 55px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        pointer-events: none;
+        transition: 0.2s;
+        color: #2f2923;
+        z-index: 2;
+    }
+
+    &__balloon::before,
+    &__balloon::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 100%);
+    }
+
+    &__balloon::before {
+        bottom: 1px;
+        border-width: 8px 5px 0 5px;
+        border-color: #fff4ea transparent transparent transparent;
+        z-index: 2;
+    }
+
+    &__balloon::after {
+        bottom: 0;
+        border-width: 11px 8px 0 8px;
+        border-color: #96A385 transparent transparent transparent;
+        z-index: 1;
+    }
+
+    &__btn {
+        width: 100%;
+        padding: 25px 30px;
+        border-radius: 8px;
+        line-height: 1;
+        text-align: center;
+        @include m-flex(center, center);
+        box-sizing: border-box;
+        background: #FFF4EA;
+        box-shadow: 0 5px 0 #67705b;
+        color: $color-sub;
+        transition: 0.2s;
+    }
+
+    &__btn:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        bottom: 0;
+        right: 2rem;
+        @include m-flex(center, center);
+        transition: right 0.3s;
+        width: 6px;
+        height: 6px;
+        border-top: solid 2px currentColor;
+        border-right: solid 2px currentColor;
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    &__btn:hover {
+        background: #6bc594;
+        color: #FFF4EA;
+        box-shadow: 0 2px 0 #2c9d60;
+        transform: translateY(3px);
+    }
+
+
+    &__nav{
+        display: none;
+        width: (630/1220)*100%;
+        @include m-query(PC){
+            display: block;
+        }
+    }
+
+    .nav{
+        @include m-flex(flex-start , flex-start);
+
+        &__group{
+            margin:0 0 (60em/16) (60em/16);
+            min-width: 12em;
+        }
+
+        &__category{
+            font-size: f-rem(20.25);
+            font-weight: bold;
+            line-height: (20.25/30.4);
+            margin-bottom: (20em/16);
+        }
+
+        &__item{
+            margin-top: (10em/16);
+        }
+    }
+}
+
+
+
+/* top */
+/* index hero */
+#top .hero{
+    background: url("../image/hero.jpg") no-repeat center center / cover;
+    padding: (380em/16) 0 (300em/16);
+
+    @supports (background-image: url(../images/hero.webp)){
+        .hero {
+            background-image: url(../images/hero.webp) no-repeat center center / cover;
+            padding: (380em/16) 0 (300em/16);
+        }
+    }
+
+        &__inner{
+            @include m-inner();
+        }
+
+        &__text{
+            color: #FFF2E5;
+            font-size: f-rem(32.44);
+        }
+}
+
+
+/* index about */
+#top .about{
+    margin-top: (120em/16);
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+        white-space: nowrap;
+    }
+
+    &__body{
+        text-align: center;
+
+        // フレームのための設定
+        border: solid #ccc 40px;
+        border-image: url(../image/f0371_1.png);
+        border-image-slice: 100;
+        display: inline-block;
+        padding: (15em/16);
+        @include m-query(PC){
+            padding: (30em/16);
+        }
+
+        @supports (border-image: url(../images/f0371_1.webp)){
+            &__body {
+                border-image: url(../images/f0371_1.webp);
+            }
+        }
+    }
+
+    &__text{
+        // width: (600/1220)*100%;
+        margin: (50em/16) auto 0 auto;
+        span{
+            display: inline-block;
+            line-height: (42/16);
+        }
+    }
+
+    .btn{
+        display: inline-block;
+        border: $color-sub 3px solid;
+        margin-top: (50em/16);
+        white-space: nowrap;
+        &:hover{
+            color: #FFF2E5;
+            background-color: $color-sub;
+        }
+    }
+}
+
+
+/* index service */
+#top .service{
+    padding-top: (120em/16);
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+    }
+
+    &__list{
+        @include m-query(TB){
+            display: grid;
+            /* グリッドレイアウトを有効化 */
+            grid-template-columns: 1fr 1fr;
+            /* 横に2列 */
+            grid-gap: 20px;
+            /* 要素間の隙間 */
+            max-width: 800px;
+            /* グリッド全体の幅を指定（必要に応じて調整） */
+            margin: 0 auto;
+            /* 中央揃え */
+        }
+    }
+
+    &__link{
+        display: block;
+        width: fit-content;
+    }
+
+    .card{
+        @include m-flex(center , center);
+        flex-direction: column;
+        width: 100%;
+        height: 175px;
+        background-color: #FFF4EA;
+        border-radius: 25px;
+        padding: 30px;
+        box-shadow: 0 4px 0 #2f2923;
+        margin-bottom: (60em/16);
+        overflow: hidden;
+        &:hover {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+
+        &__item{
+            width: fit-content;
+        }
+
+        &__img{
+            height: auto;
+            /* アスペクト比を維持 */
+            border-radius: 4px;
+            /* 画像の角を少し丸く */
+            width: 120px;
+            display: block;
+        }
+
+        &__text{
+            text-align: center;
+            white-space: nowrap;
+            margin-top: 15px;
+        }
+    }
+
+    #photo{
+        border: $color-photo 4px solid;
+    }
+
+    #contest{
+        border: $color-contest 4px solid;
+    }
+
+    #trade{
+        border: $color-trade 4px solid;
+    }
+
+    #dubbing{
+        border: $color-dubbing 4px solid;
+    }
+}
+
+/* index gallery */
+#top .gallery{
+    margin-top: (120em/16);
+
+    &__inner{
+        @include m-inner();
+        border: #698269 3px solid;
+        border-radius: 50px;
+        padding: (30em/16);
+        }
+
+    &__title{
+        @include m-title-main();
+        white-space: nowrap;
+        @include m-query(PC){
+
+        }
+    }
+
+    &__body{
+        margin-top: (30em/16);
+    }
+
+    &__text{
+        margin-top: (30em/16);
+    }
+
+    .btn{
+        border: #698269 2px solid;
+        display: block;
+        margin-top: (30em/16);
+        box-shadow: 0 4px 0 #2f2923;
+        }
+
+    .btn:hover{
+        transform: translateY(4px);
+        box-shadow: none;
+    }
+
+    @include m-query(PC){
+        &__body{
+            @include m-flex(flex-start , normal);
+        }
+
+        &__img {
+            width: (530/1220)*100%;
+        }
+
+        &__text{
+            @include m-flex(column , flex-end);
+            width: (526/1220)*100%;
+            margin: 0 0 0 (60em/16);
+        }
+    }
+}
+
+/* index contact */
+#top .contact{
+    background: url(../image/contact-bg.jpg) no-repeat center center / cover;
+    color: #FDF4EC;
+    margin-top: (120em/16);
+    padding: (120em/16) 0;
+
+    @supports (background-image: url(../images/contact-bg.webp)){
+        .contact {
+            background-image: url(../images/contact-bg.webp) no-repeat center center / cover;
+            padding: (120em/16) 0;
+        }
+    }
+    @include m-query(PC){
+        text-align: center
+    }
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+    }
+
+    &__text p{
+        margin-top: (10em/16);
+    }
+
+    .fa-phone{
+        margin-right: 5px;
+    }
+
+
+    &__link{
+        @include m-query(PC){
+            @include m-flex(space-between , center);
+            margin-top: (60em/16);
+        }
+    }
+
+    .btn{
+        width: 300px;
+        color: #fefffc;
+        background-color: #5F7080;
+        transition: .4s;
+        margin:(30em/16) auto;
+
+        &:hover{
+            transform: scale(1.1);
+        }
+
+        &--tel{
+            background-color: #934D4D;
+        }
+
+        @include m-query(PC){
+            margin: (20em/16) ;
+        }
+    }
+
+}
+
+/* index access */
+#top .access{
+    margin-top: (120em/16);
+    padding-bottom: (150em/16);
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+    }
+
+    &__body{
+        @include m-query(PC) {
+            @include m-flex(flex-start);
+        }
+    }
+
+    &__text{
+        p{
+            margin-top: (30em/15);
+        }
+        @include m-query(PC){
+            width: 50%;
+        }
+    }
+
+    &__map{
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-top: 50%;
+        margin-top: (30em/16);
+
+        @include m-query(PC){
+            max-width: 50%;
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__heigh{
+        max-width: 50%;
+    }
+
+}
+
+
+/* service　各種サービス共通部 */
+/* mv（上部） */
+.mv{
+    padding-top: (120em/16);
+    @include m-query(PC){
+        @include m-flex(flex-start , center);
+    }
+
+    &__img {
+        text-align: center;
+        padding: (80em/16) 0;
+        @include m-query(PC){
+            width: 50%;
+        }
+
+        img{
+            width: 220px;
+            aspect-ratio: 1/1;
+            @include m-query(PC){
+                width: 400px;
+            }
+        }
+    }
+
+    &__intro{
+        color: $color-sub;
+        background-color: #FFF8EE;
+        padding: (60em/16) 0;
+        @include m-query(PC){
+            width: 50%;
+            padding: (190em/16) 0;
+        }
+    }
+
+    &__title{
+        font-family:"Zen Maru Gothic", "serif";
+        font-size: f-rem(39.81);
+        font-weight: bold;
+    }
+
+    &__text{
+        margin-top: (30em/16)
+    }
+
+    &__inner{
+        @include m-inner();
+    }
+}
+
+/* table （価格表） */
+.table {
+    border: 2px solid $color-sub;
+    border-collapse: separate;
+    //collapseだと丸角にならない
+    border-spacing: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    width: fit-content;
+
+    /* 項目名 */
+    &__kinds{
+        padding: (12em/16);
+        border-bottom: 1px solid $color-sub;
+        color: #FFF4EA;
+        width: 300px;
+    }
+
+    /* 価格と内容 */
+    &__contents{
+        padding: (12em/16);
+        border-bottom: 1px solid $color-sub;
+        border-left: 1px solid $color-sub;
+    }
+
+    &__item{
+        &:last-child th{
+            border-bottom: none;
+        }
+        &:last-child td{
+            border-bottom: none;
+        }
+    }
+}
+
+/* unit */
+.unit{
+    background-color: #fff4ea;
+    border-radius: 10px;
+    padding: (30em/16) ;
+    margin: (60em/16) auto 0 auto;
+    max-width: 400px;
+
+    &__img{
+        max-width: 400px;
+    }
+
+    &__title{
+        font-size: f-rem(24);
+        margin-top: (35em/24);
+    }
+
+    &__text{
+        margin-top: (35em/16);
+    }
+
+    &__price{
+        font-size: f-rem(20.25);
+        border-top: 1px dashed rgba($color: $color-sub, $alpha: .8);
+        padding-top: (20em/16);
+        margin-top: (35em/20.25);
+    }
+}
+
+/* point */
+.point{
+    background-color: #698269;
+    padding: (60em/16) 0 (150em/16);
+    margin-top: (120em/16);
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+        color: #FFF4EA;
+    }
+
+    &__list{
+        margin-top: (60em/16);
+    }
+
+    &__item{
+        background-color: #F1DBBF;
+        border-radius: 0 60px 0 60px;
+        padding: (45em/16);
+        margin-top: (30em/16);
+        @include m-flex(flex-start , normal );
+        flex-wrap: nowrap;
+
+        p{
+            margin-bottom: (15em/16);
+        }
+
+
+        span{
+            display: block;
+            font-size: f-rem(22.78);
+            margin-right: 30px;
+        }
+    }
+}
+
+/* service photo */
+#photo .mv{
+    &__img{
+        background-color: #934D4D;
+        padding-bottom: (84.8em/16);
+        // 1226px
+        @include m-query($breakpoint:1226px){
+            padding-bottom: (100em/16);
+        }
+    }
+}
+
+#photo .price{
+    padding-top: (120em/16);
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+        text-align: center;
+    }
+}
+
+#photo .table{
+    margin-left: auto;
+    margin-right: auto;
+
+    &__kinds{
+        background-color: #934D4D;
+    }
+}
+
+#photo .set{
+    padding-top: (120em/16);
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+        text-align: center;
+    }
+
+    &__list{
+        @include m-flex(flex-start , center);
+    }
+
+}
+
+#photo .option{
+    padding-top: (120em/16);
+
+    &__title{
+        @include m-title-main();
+        text-align: center
+    }
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__list{
+        @include m-flex(flex-start);
+    }
+}
+
+
+/* service contest */
+#contest .mv {
+    &__img {
+        padding-bottom: (86em/16);
+        background-color: #C47A5A;
+    }
+}
+
+#contest .contest{
+    padding: (120em/16) 0 (150em/16);
+    // ずれていない
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__item{
+        @include m-flex(flex-start , normal);
+        background-color: #FFF4EA;
+        border: #C47A5A 1px solid;
+        border-radius: 0 40px 0 0;
+        padding: (40em/16) (30em/16);
+    }
+
+    &__info{
+        margin-top: (30em/16);
+        @include m-query(PC){
+            width: 45%;
+            margin-left: (30em/16);
+            margin-top: 0;
+        }
+    }
+
+
+    &__title{
+        @include m-title-main();
+    }
+
+    &__item a{
+        color: #C47A5A;
+        text-decoration: underline;
+    }
+
+    p{
+        margin-bottom: (15em/16);
+    }
+
+    @include m-query(PC){
+        img{
+            width: 40%;
+        }
+    }
+}
+
+
+/* service trade */
+#trade .mv{
+    &__img{
+        display: block;
+        background-color: #D0AC7F;
+    }
+
+    &__intro{
+        @include m-query(PC){
+            padding: (200em/16) 0;
+        }
+    }
+    // 1194pxはずれている、1195pxはずれていない
+}
+
+#trade .trade{
+    color: #FFF8EE;
+    margin: (120em/16) 0 (150em/16);
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+    }
+
+    &__group{
+        background-color: #5F7080;
+        border-radius: 30px 0 0 0;
+        padding: (30em/16);
+        margin-top: (150em/16);
+        &--in{
+            background-color: #934D4D;
+        }
+        @include m-query(PC){
+            @include m-flex(flex-start);
+        }
+    }
+
+    &__about{
+        @include m-query(PC){
+            width: 45%;
+            margin-top: 0;
+        }
+
+        em{
+            font-weight: bold;
+        }
+    }
+
+    &__text{
+        margin-bottom: (30em/16);
+    }
+
+    &__flow{
+        width: 45%;
+        @include m-query(PC){
+            margin-top: 0;
+        }
+    }
+}
+
+#trade .btn{
+    display: block;
+    color: #2f2923;
+    border: #2f2923 2px solid;
+    box-shadow: 0 4px 0 #2f2923;
+    background-color: #FFF4EA;
+    margin-top: (120em/16);
+
+    &:hover {
+        transform: translateY(4px);
+        box-shadow: none;
+    }
+}
+
+
+/* service dubbing */
+#dubbing .mv{
+    &__img{
+        background-color: #96A385;
+    }
+
+    &__intro{
+        @include m-query(PC){
+            padding: (187.2em/16) 0;
+        }
+        // 1386pxはずれている、1387pxはずれていない
+    }
+}
+
+#dubbing .price{
+    padding: (120em/16) 0 0;
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+        text-align: center;
+    }
+}
+
+#dubbing .table{
+    margin-left: auto;
+    margin-right: auto;
+
+    &__kinds{
+        background-color: #96A385;
+    }
+}
+
+#dubbing .btn{
+    display: block;
+    color: #2f2923;
+    border: #2f2923 2px solid;
+    box-shadow: 0 4px 0 #2f2923;
+    background-color: #FFF4EA;
+    margin-top: (120em/16);
+
+    &:hover {
+        transform: translateY(4px);
+        box-shadow: none;
+    }
+}
+
+
+/* about 店舗について */
+#about .content{
+    background-color: #FFF4EA;
+    padding-top: (120em/16);
+
+    &__item{
+        @include m-query(PC){
+            @include m-flex();
+        }
+    }
+
+    &__img{
+        width: 100%;
+        @include m-query(PC){
+            width: 50%;
+        }
+    }
+
+    &__text{
+        text-align: center;
+        padding-bottom: (60em/16);
+        @include m-query(PC){
+            text-align: left;
+            padding-left: (30em/16);
+            width: 50%;
+            padding-bottom: 0;
+        }
+    }
+
+    &__text p{
+        margin-top: (20em/16);
+    }
+
+
+    &__catch{
+        font-size: f-rem(25.63);
+    }
+
+    .sp{
+        @include m-query(PC){
+            display: none;
+        }
+    }
+
+    /* 以下mvのアニメーション　１行ずつふわっと表示（フェードイン） */
+    &__text p {
+        transition: 1s;
+        opacity: 0;
+        transform: translateY(20px);
+        display: block;
+
+        &:nth-child(1) {
+            animation: catch_anime 1.4s forwards 1s;
+        }
+
+        &:nth-child(2) {
+            animation: catch_anime 1.4s forwards 2s;
+        }
+
+        &:nth-child(3) {
+            animation: catch_anime 1.4s forwards 3s;
+        }
+
+        &:nth-child(4) {
+            animation: catch_anime 1.4s forwards 4s;
+        }
+
+        &:nth-child(5) {
+            animation: catch_anime 1.4s forwards 5s;
+        }
+
+        &:nth-child(6) {
+            animation: catch_anime 1.4s forwards 6s;
+        }
+    }
+
+    @keyframes catch_anime {
+        0% {
+            transform: translateY(20px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+#about .staff{
+    background-color: #7F9783;
+    padding: (120em/16) 0 (120em/16);
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+    }
+
+    &__list{
+        opacity: 0;
+        @include m-query(PC){
+            @include m-flex(stretch);
+        }
+    }
+
+    &__item{
+        padding: (30em/16);
+        width: 320px;
+        margin-bottom: (60em/16);
+
+        @include m-query(else){
+            margin: 0 (30em/16) 0 0;
+        }
+    }
+
+    &__img{
+        width: 320px;
+        height: 180px;
+        object-fit: cover;
+
+        &--mariko{
+            object-position: 0px -170px;
+        }
+    }
+
+    /* 以下アニメーション　下からふわっと表示（フェードイン） */
+    .show {
+        animation-name: fadeUpAnime;
+        animation-duration: 1.5s;
+        animation-fill-mode: forwards;
+        opacity: 0;
+    }
+
+    @keyframes fadeUpAnime {
+        from {
+            opacity: 0;
+            transform: translateY(100px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+#about .info{
+    padding: (120em/16) 0 (150em/16) 0;
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+    }
+
+    &__body{
+        @include m-query(PC){
+            @include m-flex(flex-start , flex-start);
+        }
+    }
+
+    &__text{
+        margin-bottom: (60em/16);
+        @include m-query(PC){
+            width: 50%;
+        }
+    }
+
+    &__item{
+        @include m-flex(flex-start , flex-start);
+        border-bottom: solid 1px rgba($color: $color-sub, $alpha: .8);
+        width: 500px;
+        padding-bottom: (20em/16);
+        margin-top: (30em/16);
+    }
+
+    &__label{
+        width: 130px;
+    }
+
+}
+
+#about .btn{
+    background-color: $color-bg;
+    border: $color-sub 2px solid;
+    border-radius: 25px;
+    width: 250px;
+    transition: .4s;
+    margin: (30em/16) auto 0 auto;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+
+
+/* ギャラリー */
+#galleryPage .galleryPage__inner{
+    @include m-inner();
+    @include m-flex(flex-start , center);
+    padding: (120em/16) 0 (150em/16) 0;
+}
+
+#galleryPage .now{
+    padding-top: (120em/16);
+    @include m-query(PC){
+        width: 50%;
+    }
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+    }
+}
+
+#galleryPage .past{
+    padding-top: (120em/16);
+    @include m-query(PC){
+        width: 40%;
+    }
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+    }
+
+    &__item{
+        width: 40%;
+        margin-right: (60em/16);
+        margin-bottom: (60em/16)
+    }
+
+    &__list{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 0;
+    }
+}
+
+#galleryPage .btn{
+    display: block;
+    color: #2f2923;
+    border: #2f2923 2px solid;
+    box-shadow: 0 4px 0 #2f2923;
+    background-color: #FFF4EA;
+    margin-top: (120em/16);
+
+    &:hover {
+        transform: translateY(4px);
+        box-shadow: none;
+    }
+}
+
+
+/* contact お問い合わせフォーム*/
+#contact .contact {
+    padding: (240em/16) 0 (150em/16);
+
+    &__inner {
+        @include m-inner($mw: 900px);
+    }
+
+    &__title{
+        @include m-title-main();
+    }
+
+    &__kind{
+        color: #FFF2E5;
+        background-color: #934D4D;
+        padding: (5em/16) (10em/16);
+        text-align: center;
+        flex: 1;
+        width: fit-content;
+        border-radius: 30px;
+        margin-bottom: (15em/16);
+        font-size: f-rem(15);
+    }
+
+
+    // お問い合わせ　確認ボタン
+    .wpcf7-submit {
+        display: block;
+        text-align: center;
+        width: 250px;
+        line-height: 1;
+        font-weight: bold;
+        background-color: #FFF4EA;
+        border: #5F4C45 1px solid;
+        border-radius: 15px;
+        box-shadow: 0 4px 0 #000;
+        padding: (20em/16) (40em/16);
+        margin: (120em/16) auto 0 auto;
+
+        &:hover {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+    }
+
+    // 本文
+    .wpcf7-textarea{
+        height: 300px;
+        padding: 16px;
+    }
+
+    // 入力欄
+    input , textarea {
+        width: 100%;
+        background-color: #FFF4EA;
+        border: 1px solid #5F4C45;
+        border-radius: 10px;
+        height: (60em/16);
+        padding-left: 16px;
+    }
+
+    label{
+        display: block;
+        margin-top: (60em/16);
+    }
+}
+
+
+/* contact 確認ページ */
+.cnf{
+    padding: (240em/16) 0 (150em/16);
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__title{
+        @include m-title-main();
+    }
+
+    &__text{
+        font-weight: bold;
+        color: #934D4D;
+        margin-top: (15em/16);
+    }
+
+    &__label{
+        display: block;
+        margin-top: (60em/16);
+    }
+
+    &__kind{
+        color: #FFF2E5;
+        background-color: #934D4D;
+        padding: (5em/16) (10em/16);
+        text-align: center;
+        flex: 1;
+        width: fit-content;
+        border-radius: 30px;
+        margin-bottom: (15em/16);
+        font-size: f-rem(15);
+    }
+
+    &__button p{
+        margin-top: (30em/16);
+        @include m-flex(center , center);
+        gap: (40em/16);
+    }
+
+    .wpcf7-form-control.wpcf7-previous{
+        display: block;
+        background-color: #FFF4EA;
+        border: #5F4C45 1px solid;
+    }
+
+    .wpcf7-form-control.wpcf7-submit.has-spinner{
+        display: block;
+        background-color: #934D4D;
+        border: #5F4C45 1px solid;
+        color: #FFF4EA;
+        min-width: 100px;
+    }
+
+    .wpcf7-form-control {
+        display: block;
+        text-align: center;
+        line-height: 1;
+        font-weight: bold;
+        box-shadow: 0 4px 0 #000;
+        padding: (20em/16) (40em/16);
+        border-radius: 15px;
+
+        &:hover {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+    }
+}
+
+
+/* contact  サンクスページ */
+.thanks{
+    text-align: center;
+    background: url(../image/thanksBG.jpg) no-repeat center center / cover;
+    padding: (270em/16) 0;
+
+
+    &__inner{
+        @include m-inner();
+    }
+
+    &__body{
+        width: 100%;
+        border: solid #ccc 50px;
+        border-image: url(../image/f1511_3.svg);
+        border-image-slice: 100 fill;
+        display: inline-block;
+        padding: 30px;
+    }
+
+    &__title{
+        @include m-title-main();
+        white-space: nowrap;
+    }
+
+    .btn{
+        border: #698269 2px solid;
+        display: inline-block;
+        box-shadow: 0 4px 0 #2f2923;
+        white-space: nowrap;
+        margin-top: (60em/16);
+        &:hover {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+    }
+
+    &__text p{
+        margin-top: (15em/16);
+    }
+
+    @supports (background-image: url(../images/thanksBG.webp)){
+        .thanks {
+            background-image: url(../images/thanksBG.webp) no-repeat center center / cover;
+            padding: (150em/16) 0;
+        }
+    }
+}
+
+
+/* 404ページ */
+.error{
+    background: url(../image/404bg.jpg) no-repeat center center / cover;
+    text-align: center;
+    padding: (320em/16) 0;
+
+    &__inner{
+        @include m-inner();
+        background-color: rgba(245, 242, 229, .9);
+        padding: (30em/16)
+    }
+
+    &__title{
+        @include m-title-main();
+    }
+
+    &__text p{
+        margin-top: (15em/16);
+    }
+
+    .btn{
+        display: inline-block;
+        border: $color-sub 2px solid;
+        box-shadow: 0 4px 0 #2f2923;
+        margin-top: (30em/16);
+        &:hover {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+    }
+
+    @supports (background-image: url(../images/404bg.webp)){
+        .error{
+            background: url(../image/404bg.webp) no-repeat center center / cover;
+            padding: (200em/16) 0;
+        }
+    }
+}
