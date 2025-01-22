@@ -254,7 +254,7 @@ header.transparent, .contactPage header {
   text-align: left;
 }
 .footer__contact {
-  width: 100px;
+  width: 60px;
   height: auto;
   position: fixed;
   right: 20px;
@@ -270,6 +270,7 @@ header.transparent, .contactPage header {
   color: #FFF4EA;
 }
 .footer__contact--pc {
+  width: 100px;
   display: none;
 }
 @media (1100px <= width) {
@@ -322,7 +323,6 @@ header.transparent, .contactPage header {
 }
 .footer__btn {
   width: 100%;
-  padding: 25px 30px;
   border-radius: 8px;
   line-height: 1;
   text-align: center;
@@ -335,8 +335,14 @@ header.transparent, .contactPage header {
   box-shadow: 0 5px 0 #67705b;
   color: #5F4C45;
   transition: 0.2s;
+  padding: 10px;
 }
-.footer__btn:after {
+@media (1100px <= width) {
+  .footer__btn {
+    padding: 25px 30px;
+  }
+}
+.footer__contact--pc .footer__btn:after {
   content: "";
   position: absolute;
   top: 50%;

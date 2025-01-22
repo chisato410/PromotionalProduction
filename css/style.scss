@@ -300,7 +300,7 @@ header.transparent , .contactPage header{
 
     /* コンタクトボタン */
     &__contact {
-        width: 100px;
+        width: 60px;
         height: auto;
         position: fixed;
         right: 20px;
@@ -315,13 +315,10 @@ header.transparent , .contactPage header{
                 color: #FFF4EA;
             }
 
-            // span{
-            //     writing-mode: vertical-rl;
-            //     text-orientation: upright;
-            // }
         }
 
         &--pc{
+            width: 100px;
             display: none;
 
             @include m-query(PC){
@@ -377,7 +374,6 @@ header.transparent , .contactPage header{
 
     &__btn {
         width: 100%;
-        padding: 25px 30px;
         border-radius: 8px;
         line-height: 1;
         text-align: center;
@@ -387,21 +383,29 @@ header.transparent , .contactPage header{
         box-shadow: 0 5px 0 #67705b;
         color: $color-sub;
         transition: 0.2s;
+        padding: 10px;
+
+        @include m-query(PC){
+            padding: 25px 30px;
+        }
     }
 
-    &__btn:after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        bottom: 0;
-        right: 2rem;
-        @include m-flex(center, center);
-        transition: right 0.3s;
-        width: 6px;
-        height: 6px;
-        border-top: solid 2px currentColor;
-        border-right: solid 2px currentColor;
-        transform: translateY(-50%) rotate(45deg);
+
+    &__contact--pc{
+        .footer__btn:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            bottom: 0;
+            right: 2rem;
+            @include m-flex(center, center);
+            transition: right 0.3s;
+            width: 6px;
+            height: 6px;
+            border-top: solid 2px currentColor;
+            border-right: solid 2px currentColor;
+            transform: translateY(-50%) rotate(45deg);
+        }
     }
 
     &__btn:hover {
@@ -1068,7 +1072,6 @@ header.transparent , .contactPage header{
             padding: (200em/16) 0;
         }
     }
-    // 1194pxはずれている、1195pxはずれていない
 }
 
 #trade .trade{
@@ -1144,7 +1147,6 @@ header.transparent , .contactPage header{
         @include m-query(PC){
             padding: (187.2em/16) 0;
         }
-        // 1386pxはずれている、1387pxはずれていない
     }
 }
 

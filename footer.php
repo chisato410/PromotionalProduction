@@ -19,7 +19,6 @@
                 </div>
                 <div class="footer__contact footer__contact--sp">
                     <a class="footer__btn" href="<?php echo home_url('/contact/'); ?>">
-                        <span class="footer__balloon">分からないことがある…</span>
                         <img src="<?php echo get_theme_file_uri('./image/mail.svg'); ?>" alt="お問い合わせ">
                     </a>
                 </div>
