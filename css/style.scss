@@ -308,11 +308,13 @@ header.transparent , .contactPage header{
         margin: (60em/16) auto auto;
 
         &--sp{
+            fill: #2f2923;
+
             @include m-query(PC){
                 display: none;
             }
             &:hover{
-                color: #FFF4EA;
+                fill: #FFF4EA;
             }
 
         }

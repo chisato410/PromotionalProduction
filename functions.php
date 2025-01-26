@@ -64,4 +64,17 @@ return "$url' async charset='UTF-8"; // async属性を付与
 add_filter( 'clean_url', 'add_async_to_enqueue_script', 11, 1 );
 }
 
+
+// ダッシュボードの編集
+function remove_dashboard_widgets() {
+    // 「クイックドラフト」ウィジェットを削除
+    remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
+    // 「WordPressニュース」ウィジェットを削除
+    remove_meta_box('dashboard_primary', 'dashboard', 'side');
+    // 「アクティビティ」ウィジェットを削除
+    remove_meta_box('dashboard_activity', 'dashboard', 'normal');
+    // その他の不要なウィジェットを追加で削除できます
+}
+
+add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
 ?>

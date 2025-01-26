@@ -261,13 +261,16 @@ header.transparent, .contactPage header {
   bottom: 25px;
   margin: 3.75em auto auto;
 }
+.footer__contact--sp {
+  fill: #2f2923;
+}
 @media (1100px <= width) {
   .footer__contact--sp {
     display: none;
   }
 }
 .footer__contact--sp:hover {
-  color: #FFF4EA;
+  fill: #FFF4EA;
 }
 .footer__contact--pc {
   width: 100px;
