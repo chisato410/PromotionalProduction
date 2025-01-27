@@ -7,7 +7,8 @@
         <section id="hero" class="hero">
             <div class="hero__inner">
                 <h2 class="hero__text">
-                    カメラは専門店で・・・<br>みゆきカメラ
+                    <p>カメラは専門店で...</p>
+                    <p>みゆきカメラ</p>
                 </h2><!-- /.hero__text -->
             </div><!-- /.hero__inner -->
         </section><!-- /#hero -->

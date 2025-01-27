@@ -65,6 +65,13 @@ add_filter( 'clean_url', 'add_async_to_enqueue_script', 11, 1 );
 }
 
 
+// ウェルカムパネル削除
+function remove_welcome_panel()
+{
+    remove_action('welcome_panel', 'wp_welcome_panel');
+}
+add_action('admin_head', 'remove_welcome_panel');
+
 // ダッシュボードの編集
 function remove_dashboard_widgets() {
     // 「クイックドラフト」ウィジェットを削除
@@ -73,8 +80,43 @@ function remove_dashboard_widgets() {
     remove_meta_box('dashboard_primary', 'dashboard', 'side');
     // 「アクティビティ」ウィジェットを削除
     remove_meta_box('dashboard_activity', 'dashboard', 'normal');
-    // その他の不要なウィジェットを追加で削除できます
 }
 
 add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
+
+function remove_yoast_dashboard_widgets() {
+    // Yoast SEOのダッシュボードウィジェットを削除
+    remove_meta_box('wpseo-dashboard-overview', 'dashboard', 'normal');
+}
+add_action('wp_dashboard_setup', 'remove_yoast_dashboard_widgets');
+
+
+// サイドバーの編集
+function remove_admin_menu_items() {
+    // 「投稿」を非表示にする
+    remove_menu_page('edit.php');
+    // 「コメント」を非表示にする
+    remove_menu_page('edit-comments.php');
+}
+add_action('admin_menu', 'remove_admin_menu_items');
+
+
+function add_manual_pdf_widget()
+{
+    wp_add_dashboard_widget(
+        'custom_manual_widget', // ウィジェットID（ユニークにする必要があります）
+        '操作マニュアル', // ウィジェットのタイトル
+        'display_manual_pdf_widget' // ウィジェットの内容を表示する関数
+    );
+}
+
+function display_manual_pdf_widget()
+{
+    // PDFリンクを表示
+    echo '<p>以下のリンクから操作マニュアルPDFをダウンロードできます:</p>';
+    echo '<p><a href="https://example.com/manual.pdf" target="_blank" style="font-weight: bold; text-decoration: none; color: #0073aa;">操作マニュアルを閲覧する</a></p>';
+    echo '<p>何かご不明点があれば、管理者にお問い合わせください。</p>';
+}
+
+add_action('wp_dashboard_setup', 'add_manual_pdf_widget');
 ?>

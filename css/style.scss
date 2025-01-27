@@ -106,10 +106,19 @@ html{
     z-index: 1000;
     background-color: #fff2e5;
     transition: background-color 0.3s;
+    padding: (3em/16) 0;
 
     &__inner {
         @include m-inner();
         @include m-flex();
+    }
+
+    &__logo img{
+        width: 88%;
+
+        @include m-query(PC){
+            width: 100%;
+        }
     }
 }
 
@@ -466,9 +475,11 @@ header.transparent , .contactPage header{
             @include m-inner();
         }
 
-        &__text{
+        &__text p{
+            font-family: "Zen Maru Gothic", "serif";
             color: #FFF2E5;
             font-size: f-rem(32.44);
+            white-space: nowrap;
         }
 }
 
