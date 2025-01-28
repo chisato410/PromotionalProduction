@@ -82,19 +82,19 @@ html{
     font-weight: bold;
     border-radius: 25px;
     padding: (15em/16) (20em/16);
+}
 
-    &--service{
-        width: 250px;
-        margin-left: auto;
-        margin-right: auto;
-        border: $color-sub 2px solid;
-        box-shadow: 0 4px 0 #2f2923;
-        background-color: #FFF4EA;
-        margin-top: (120em/16);
-        &:hover {
-            transform: translateY(4px);
-            box-shadow: none;
-        }
+.btn--service{
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    border: $color-sub 2px solid;
+    box-shadow: 0 4px 0 #2f2923;
+    background-color: #FFF4EA;
+    margin-top: (120em/16);
+    &:hover {
+        transform: translateY(4px);
+        box-shadow: none;
     }
 }
 
@@ -107,19 +107,19 @@ html{
     background-color: #fff2e5;
     transition: background-color 0.3s;
     padding: (3em/16) 0;
+}
 
-    &__inner {
+.header__inner {
         @include m-inner();
         @include m-flex();
-    }
+}
 
-    &__logo img{
+.header__logo img{
         width: 88%;
 
         @include m-query(PC){
             width: 100%;
         }
-    }
 }
 
 header.transparent , .contactPage header{

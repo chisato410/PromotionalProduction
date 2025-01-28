@@ -113,8 +113,9 @@ function add_manual_pdf_widget()
 function display_manual_pdf_widget()
 {
     // PDFリンクを表示
-    echo '<p>以下のリンクから操作マニュアルPDFをダウンロードできます:</p>';
-    echo '<p><a href="https://example.com/manual.pdf" target="_blank" style="font-weight: bold; text-decoration: none; color: #0073aa;">操作マニュアルを閲覧する</a></p>';
+    echo '<p>こちらは操作マニュアルです。ご不明な点があればこちらをご覧ください。</p>';
+    echo '<p>操作マニュアルはPDF形式です。</p>';
+    echo '<p>ログイン方法<a href="https://example.com/manual.pdf" target="_blank" style="font-weight: bold; text-decoration: none; color: #0073aa;">操作マニュアルを閲覧する</a></p>';
     echo '<p>何かご不明点があれば、管理者にお問い合わせください。</p>';
 }
 
