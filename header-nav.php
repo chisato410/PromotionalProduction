@@ -8,6 +8,7 @@
 
         <div class="header__nav ">
             <nav class="nav nav--hidden">
+
                 <ul class="nav__list">
                     <li class="nav__item nav__top"><a href="<?php echo home_url('/'); ?>">ホーム</a></li><!-- /.nav__item -->
 

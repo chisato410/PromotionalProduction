@@ -52,16 +52,17 @@ function my_style_output()
 add_action('wp_enqueue_scripts', 'my_style_output');
 
 //jsにasync属性を付与
-if (!(is_admin() )) {
-function add_async_to_enqueue_script( $url ) {
-if ( FALSE === strpos( $url, '.js' ) ) return $url;
-if ( strpos( $url, 'jquery.js' ) ) return $url; //対象外
-if ( strpos( $url, 'jquery.min.js' ) ) return $url;
-if ( strpos( $url, 'jquery-colorbox-wrapper-min.js' ) ) return $url;
-if ( strpos( $url, 'jquery.flexslider.min.js' ) ) return $url;
-return "$url' async charset='UTF-8"; // async属性を付与
-}
-add_filter( 'clean_url', 'add_async_to_enqueue_script', 11, 1 );
+if (!(is_admin())) {
+    function add_async_to_enqueue_script($url)
+    {
+        if (FALSE === strpos($url, '.js')) return $url;
+        if (strpos($url, 'jquery.js')) return $url; //対象外
+        if (strpos($url, 'jquery.min.js')) return $url;
+        if (strpos($url, 'jquery-colorbox-wrapper-min.js')) return $url;
+        if (strpos($url, 'jquery.flexslider.min.js')) return $url;
+        return "$url' async charset='UTF-8"; // async属性を付与
+    }
+    add_filter('clean_url', 'add_async_to_enqueue_script', 11, 1);
 }
 
 
@@ -73,7 +74,8 @@ function remove_welcome_panel()
 add_action('admin_head', 'remove_welcome_panel');
 
 // ダッシュボードの編集
-function remove_dashboard_widgets() {
+function remove_dashboard_widgets()
+{
     // 「クイックドラフト」ウィジェットを削除
     remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
     // 「WordPressニュース」ウィジェットを削除
@@ -84,7 +86,8 @@ function remove_dashboard_widgets() {
 
 add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
 
-function remove_yoast_dashboard_widgets() {
+function remove_yoast_dashboard_widgets()
+{
     // Yoast SEOのダッシュボードウィジェットを削除
     remove_meta_box('wpseo-dashboard-overview', 'dashboard', 'normal');
 }
@@ -92,7 +95,8 @@ add_action('wp_dashboard_setup', 'remove_yoast_dashboard_widgets');
 
 
 // サイドバーの編集
-function remove_admin_menu_items() {
+function remove_admin_menu_items()
+{
     // 「投稿」を非表示にする
     remove_menu_page('edit.php');
     // 「コメント」を非表示にする
@@ -120,4 +124,3 @@ function display_manual_pdf_widget()
 }
 
 add_action('wp_dashboard_setup', 'add_manual_pdf_widget');
-?>

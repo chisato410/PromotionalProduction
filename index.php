@@ -39,17 +39,17 @@
                 <div class="service__list">
 
                     <a href="<?php echo home_url('/photo/'); ?>" class="service__link card" id="photo">
-                            <dl class="card__item">
-                                <dt class="card__img">
-                                    <picture>
-                                        <source type="image/camera.webp" srcset="<?php echo get_theme_file_uri('./image/camera.webp'); ?>">
-                                        <img src="<?php echo get_theme_file_uri('./image/camera.gif'); ?>" alt="" width="100%" height="auto">
-                                    </picture>
-                                </dt><!-- /.card__img -->
-                                <dd class="card__text">
-                                    <h3>証明写真</h3>
-                                </dd><!-- /.card__text -->
-                            </dl><!-- /.card__item -->
+                        <dl class="card__item">
+                            <dt class="card__img">
+                                <picture>
+                                    <source type="image/camera.webp" srcset="<?php echo get_theme_file_uri('./image/camera.webp'); ?>">
+                                    <img src="<?php echo get_theme_file_uri('./image/camera.gif'); ?>" alt="" width="100%" height="auto">
+                                </picture>
+                            </dt><!-- /.card__img -->
+                            <dd class="card__text">
+                                <h3>証明写真</h3>
+                            </dd><!-- /.card__text -->
+                        </dl><!-- /.card__item -->
                     </a>
 
                     <a href="<?php echo home_url('/contest/'); ?>" class="service__link card" id="contest">

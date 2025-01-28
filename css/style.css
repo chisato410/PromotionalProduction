@@ -9,7 +9,7 @@ body {
   letter-spacing: 0.05em;
   line-height: 1.5;
   color: #28201d;
-  background-color: #F0DCC8;
+  background-color: #f0dcc8;
 }
 
 img {
@@ -36,9 +36,9 @@ html {
   width: 250px;
   margin-left: auto;
   margin-right: auto;
-  border: #5F4C45 2px solid;
+  border: #5f4c45 2px solid;
   box-shadow: 0 4px 0 #2f2923;
-  background-color: #FFF4EA;
+  background-color: #fff4ea;
   margin-top: 7.5em;
 }
 .btn--service:hover {
@@ -48,7 +48,7 @@ html {
 
 /* header */
 .header {
-  color: #5F4C45;
+  color: #5f4c45;
   position: fixed;
   width: 100%;
   z-index: 1000;
@@ -77,7 +77,8 @@ html {
   }
 }
 
-header.transparent, .contactPage header {
+header.transparent,
+.contactPage header {
   background-color: rgba(255, 242, 229, 0.8);
 }
 
@@ -169,8 +170,8 @@ header.transparent, .contactPage header {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #FFF2E5;
-    border: 1px solid #5F4C45;
+    background-color: #fff2e5;
+    border: 1px solid #5f4c45;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
   }
@@ -191,9 +192,9 @@ header.transparent, .contactPage header {
   font-weight: bold;
   width: 100px;
   text-align: center;
-  background-color: #F0DCC8;
-  color: #5F4C45;
-  border: 1px solid #5F4C45;
+  background-color: #f0dcc8;
+  color: #5f4c45;
+  border: 1px solid #5f4c45;
   border-radius: 25px;
   padding: 10px 15px;
   font-size: 16px;
@@ -209,14 +210,14 @@ header.transparent, .contactPage header {
   }
 }
 .header__menu:hover {
-  background-color: #5F4C45;
-  color: #F0DCC8;
+  background-color: #5f4c45;
+  color: #f0dcc8;
 }
 
 /* footer */
 .footer {
-  color: #FFF2E5;
-  background-color: #5F4C45;
+  color: #fff2e5;
+  background-color: #5f4c45;
   padding: 5em 0;
   /* コンタクトボタン */
 }
@@ -282,7 +283,7 @@ header.transparent, .contactPage header {
   }
 }
 .footer__contact--sp:hover {
-  fill: #FFF4EA;
+  fill: #fff4ea;
 }
 .footer__contact--pc {
   width: 100px;
@@ -299,7 +300,7 @@ header.transparent, .contactPage header {
   height: 30px;
   padding-left: 0.1em;
   border-radius: 20px;
-  border: solid 2px #96A385;
+  border: solid 2px #96a385;
   background-color: #fff4ea;
   text-align: center;
   display: flex;
@@ -333,7 +334,7 @@ header.transparent, .contactPage header {
 .footer__balloon::after {
   bottom: 0;
   border-width: 11px 8px 0 8px;
-  border-color: #96A385 transparent transparent transparent;
+  border-color: #96a385 transparent transparent transparent;
   z-index: 1;
 }
 .footer__btn {
@@ -346,9 +347,9 @@ header.transparent, .contactPage header {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  background: #FFF4EA;
+  background: #fff4ea;
   box-shadow: 0 5px 0 #67705b;
-  color: #5F4C45;
+  color: #5f4c45;
   transition: 0.2s;
   padding: 10px;
 }
@@ -376,7 +377,7 @@ header.transparent, .contactPage header {
 }
 .footer__btn:hover {
   background: #6bc594;
-  color: #FFF4EA;
+  color: #fff4ea;
   box-shadow: 0 2px 0 #2c9d60;
   transform: translateY(3px);
 }
@@ -429,7 +430,7 @@ header.transparent, .contactPage header {
 }
 #top .hero__text p {
   font-family: "Zen Maru Gothic", "serif";
-  color: #FFF2E5;
+  color: #fff2e5;
   font-size: 2.0275rem;
   white-space: nowrap;
 }
@@ -481,13 +482,13 @@ header.transparent, .contactPage header {
 }
 #top .about .btn {
   display: inline-block;
-  border: #5F4C45 3px solid;
+  border: #5f4c45 3px solid;
   margin-top: 3.125em;
   white-space: nowrap;
 }
 #top .about .btn:hover {
-  color: #FFF2E5;
-  background-color: #5F4C45;
+  color: #fff2e5;
+  background-color: #5f4c45;
 }
 
 /* index service */
@@ -535,7 +536,7 @@ header.transparent, .contactPage header {
   flex-direction: column;
   width: 100%;
   height: 175px;
-  background-color: #FFF4EA;
+  background-color: #fff4ea;
   border-radius: 25px;
   padding: 30px;
   box-shadow: 0 4px 0 #2f2923;
@@ -565,16 +566,16 @@ header.transparent, .contactPage header {
   margin-top: 15px;
 }
 #top .service #photo {
-  border: #934D4D 4px solid;
+  border: #934d4d 4px solid;
 }
 #top .service #contest {
-  border: #C47A5A 4px solid;
+  border: #c47a5a 4px solid;
 }
 #top .service #trade {
-  border: #D0AC7F 4px solid;
+  border: #d0ac7f 4px solid;
 }
 #top .service #dubbing {
-  border: #96A385 4px solid;
+  border: #96a385 4px solid;
 }
 
 /* index gallery */
@@ -637,7 +638,7 @@ header.transparent, .contactPage header {
 /* index contact */
 #top .contact {
   background: url(../image/contact-bg.jpg) no-repeat center center/cover;
-  color: #FDF4EC;
+  color: #fdf4ec;
   margin-top: 7.5em;
   padding: 7.5em 0;
 }
@@ -683,7 +684,7 @@ header.transparent, .contactPage header {
 #top .contact .btn {
   width: 300px;
   color: #fefffc;
-  background-color: #5F7080;
+  background-color: #5f7080;
   transition: 0.4s;
   margin: 1.875em auto;
 }
@@ -691,7 +692,7 @@ header.transparent, .contactPage header {
   transform: scale(1.1);
 }
 #top .contact .btn--tel {
-  background-color: #934D4D;
+  background-color: #934d4d;
 }
 @media (1100px <= width) {
   #top .contact .btn {
@@ -788,8 +789,8 @@ header.transparent, .contactPage header {
   }
 }
 .mv__intro {
-  color: #5F4C45;
-  background-color: #FFF8EE;
+  color: #5f4c45;
+  background-color: #fff8ee;
   padding: 3.75em 0;
 }
 @media (1100px <= width) {
@@ -815,7 +816,7 @@ header.transparent, .contactPage header {
 
 /* table （価格表） */
 .table {
-  border: 2px solid #5F4C45;
+  border: 2px solid #5f4c45;
   border-collapse: separate;
   border-spacing: 0;
   border-radius: 6px;
@@ -828,14 +829,14 @@ header.transparent, .contactPage header {
 }
 .table__kinds {
   padding: 0.75em;
-  border-bottom: 1px solid #5F4C45;
-  color: #FFF4EA;
+  border-bottom: 1px solid #5f4c45;
+  color: #fff4ea;
   width: 300px;
 }
 .table__contents {
   padding: 0.75em;
-  border-bottom: 1px solid #5F4C45;
-  border-left: 1px solid #5F4C45;
+  border-bottom: 1px solid #5f4c45;
+  border-left: 1px solid #5f4c45;
 }
 .table__item:last-child th {
   border-bottom: none;
@@ -887,13 +888,13 @@ header.transparent, .contactPage header {
   line-height: 1.5;
   letter-spacing: 0.1em;
   margin-bottom: 1.0416666667em;
-  color: #FFF4EA;
+  color: #fff4ea;
 }
 .point__list {
   margin-top: 3.75em;
 }
 .point__item {
-  background-color: #F1DBBF;
+  background-color: #f1dbbf;
   border-radius: 0 60px 0 60px;
   padding: 2.8125em;
   margin-top: 1.875em;
@@ -914,7 +915,7 @@ header.transparent, .contactPage header {
 
 /* service photo */
 #photo .mv__img {
-  background-color: #934D4D;
+  background-color: #934d4d;
   padding-bottom: 5.3em;
 }
 
@@ -941,7 +942,7 @@ header.transparent, .contactPage header {
   margin-right: auto;
 }
 #photo .table__kinds {
-  background-color: #934D4D;
+  background-color: #934d4d;
 }
 
 #photo .set {
@@ -995,7 +996,7 @@ header.transparent, .contactPage header {
 /* service contest */
 #contest .mv__img {
   padding-bottom: 5.375em;
-  background-color: #C47A5A;
+  background-color: #c47a5a;
 }
 
 #contest .contest {
@@ -1012,8 +1013,8 @@ header.transparent, .contactPage header {
   flex-wrap: wrap;
   justify-content: normal;
   align-items: flex-start;
-  background-color: #FFF4EA;
-  border: #C47A5A 1px solid;
+  background-color: #fff4ea;
+  border: #c47a5a 1px solid;
   border-radius: 0 40px 0 0;
   padding: 2.5em 1.875em;
 }
@@ -1035,7 +1036,7 @@ header.transparent, .contactPage header {
   margin-bottom: 1.0416666667em;
 }
 #contest .contest__item a {
-  color: #C47A5A;
+  color: #c47a5a;
   text-decoration: underline;
 }
 #contest .contest p {
@@ -1050,7 +1051,7 @@ header.transparent, .contactPage header {
 /* service trade */
 #trade .mv__img {
   display: block;
-  background-color: #D0AC7F;
+  background-color: #d0ac7f;
 }
 @media (1100px <= width) {
   #trade .mv__intro {
@@ -1059,7 +1060,7 @@ header.transparent, .contactPage header {
 }
 
 #trade .trade {
-  color: #FFF8EE;
+  color: #fff8ee;
   margin: 7.5em 0 9.375em;
 }
 #trade .trade__inner {
@@ -1076,13 +1077,13 @@ header.transparent, .contactPage header {
   margin-bottom: 1.0416666667em;
 }
 #trade .trade__group {
-  background-color: #5F7080;
+  background-color: #5f7080;
   border-radius: 30px 0 0 0;
   padding: 1.875em;
   margin-top: 9.375em;
 }
 #trade .trade__group--in {
-  background-color: #934D4D;
+  background-color: #934d4d;
 }
 @media (1100px <= width) {
   #trade .trade__group {
@@ -1118,7 +1119,7 @@ header.transparent, .contactPage header {
   color: #2f2923;
   border: #2f2923 2px solid;
   box-shadow: 0 4px 0 #2f2923;
-  background-color: #FFF4EA;
+  background-color: #fff4ea;
   margin-top: 7.5em;
 }
 #trade .btn:hover {
@@ -1128,7 +1129,7 @@ header.transparent, .contactPage header {
 
 /* service dubbing */
 #dubbing .mv__img {
-  background-color: #96A385;
+  background-color: #96a385;
 }
 @media (1100px <= width) {
   #dubbing .mv__intro {
@@ -1159,7 +1160,7 @@ header.transparent, .contactPage header {
   margin-right: auto;
 }
 #dubbing .table__kinds {
-  background-color: #96A385;
+  background-color: #96a385;
 }
 
 #dubbing .btn {
@@ -1167,7 +1168,7 @@ header.transparent, .contactPage header {
   color: #2f2923;
   border: #2f2923 2px solid;
   box-shadow: 0 4px 0 #2f2923;
-  background-color: #FFF4EA;
+  background-color: #fff4ea;
   margin-top: 7.5em;
 }
 #dubbing .btn:hover {
@@ -1177,7 +1178,7 @@ header.transparent, .contactPage header {
 
 /* about 店舗について */
 #about .content {
-  background-color: #FFF4EA;
+  background-color: #fff4ea;
   padding-top: 7.5em;
   /* 以下mvのアニメーション　１行ずつふわっと表示（フェードイン） */
 }
@@ -1270,7 +1271,7 @@ header.transparent, .contactPage header {
 }
 
 #about .staff {
-  background-color: #7F9783;
+  background-color: #7f9783;
   padding: 7.5em 0 7.5em;
   /* 以下アニメーション　下からふわっと表示（フェードイン） */
 }
@@ -1395,8 +1396,8 @@ header.transparent, .contactPage header {
 }
 
 #about .btn {
-  background-color: #F0DCC8;
-  border: #5F4C45 2px solid;
+  background-color: #f0dcc8;
+  border: #5f4c45 2px solid;
   border-radius: 25px;
   width: 250px;
   transition: 0.4s;
@@ -1479,7 +1480,7 @@ header.transparent, .contactPage header {
   color: #2f2923;
   border: #2f2923 2px solid;
   box-shadow: 0 4px 0 #2f2923;
-  background-color: #FFF4EA;
+  background-color: #fff4ea;
   margin-top: 7.5em;
 }
 #galleryPage .btn:hover {
@@ -1505,8 +1506,8 @@ header.transparent, .contactPage header {
   margin-bottom: 1.0416666667em;
 }
 #contact .contact__kind {
-  color: #FFF2E5;
-  background-color: #934D4D;
+  color: #fff2e5;
+  background-color: #934d4d;
   padding: 0.3125em 0.625em;
   text-align: center;
   flex: 1;
@@ -1523,8 +1524,8 @@ header.transparent, .contactPage header {
   width: 250px;
   line-height: 1;
   font-weight: bold;
-  background-color: #FFF4EA;
-  border: #5F4C45 1px solid;
+  background-color: #fff4ea;
+  border: #5f4c45 1px solid;
   border-radius: 15px;
   box-shadow: 0 4px 0 #000;
   padding: 1.25em 2.5em;
@@ -1538,10 +1539,11 @@ header.transparent, .contactPage header {
   height: 300px;
   padding: 16px;
 }
-#contact .contact input, #contact .contact textarea {
+#contact .contact input,
+#contact .contact textarea {
   width: 100%;
-  background-color: #FFF4EA;
-  border: 1px solid #5F4C45;
+  background-color: #fff4ea;
+  border: 1px solid #5f4c45;
   border-radius: 10px;
   height: 3.75em;
   padding-left: 16px;
@@ -1570,7 +1572,7 @@ header.transparent, .contactPage header {
 }
 .cnf__text {
   font-weight: bold;
-  color: #934D4D;
+  color: #934d4d;
   margin-top: 0.9375em;
 }
 .cnf__label {
@@ -1578,8 +1580,8 @@ header.transparent, .contactPage header {
   margin-top: 3.75em;
 }
 .cnf__kind {
-  color: #FFF2E5;
-  background-color: #934D4D;
+  color: #fff2e5;
+  background-color: #934d4d;
   padding: 0.3125em 0.625em;
   text-align: center;
   flex: 1;
@@ -1600,14 +1602,14 @@ header.transparent, .contactPage header {
 }
 .cnf .wpcf7-form-control.wpcf7-previous {
   display: block;
-  background-color: #FFF4EA;
-  border: #5F4C45 1px solid;
+  background-color: #fff4ea;
+  border: #5f4c45 1px solid;
 }
 .cnf .wpcf7-form-control.wpcf7-submit.has-spinner {
   display: block;
-  background-color: #934D4D;
-  border: #5F4C45 1px solid;
-  color: #FFF4EA;
+  background-color: #934d4d;
+  border: #5f4c45 1px solid;
+  color: #fff4ea;
   min-width: 100px;
 }
 .cnf .wpcf7-form-control {
@@ -1700,7 +1702,7 @@ header.transparent, .contactPage header {
 }
 .error .btn {
   display: inline-block;
-  border: #5F4C45 2px solid;
+  border: #5f4c45 2px solid;
   box-shadow: 0 4px 0 #2f2923;
   margin-top: 1.875em;
 }
