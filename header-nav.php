@@ -10,9 +10,11 @@
             <nav class="nav nav--hidden">
 
                 <ul class="nav__list">
-                    <li class="nav__item nav__top"><a href="<?php echo home_url('/'); ?>">ホーム</a></li><!-- /.nav__item -->
+                    <li class="nav__item nav__top"><a href="<?php echo home_url('/'); ?>" class="<?php is_front_page() ? print "current" : "" ?>">ホーム</a></li><!-- /.nav__item -->
 
-                    <li class="nav__item parent nav__top"><a href="<?php echo home_url('/about/'); ?>">店舗について</a>
+                    <li class="nav__item parent nav__top"><a href="<?php echo home_url('/about/'); ?>" class="<?php if (is_page('about')) {
+                                                                                                                    echo "current";
+                                                                                                                } ?>">店舗について</a>
                         <ul class="nav__sub">
                             <li class="nav__item"><a href="<?php echo home_url('/about/#content'); ?>">私たちの想い</a></li>
                             <li class="nav__item"><a href="<?php echo home_url('/about/#staff'); ?>">スタッフ紹介</a></li>
@@ -22,10 +24,18 @@
 
                     <li class="nav__item parent nav__top"><a href="<?php echo home_url('/#service'); ?>">サービス</a>
                         <ul class="nav__sub">
-                            <li class="nav__item"><a href="<?php echo home_url('/photo/'); ?>">撮影サービス</a></li>
-                            <li class="nav__item"><a href="<?php echo home_url('/contest/'); ?>">コンテストサポート</a></li>
-                            <li class="nav__item"><a href="<?php echo home_url('/trade/'); ?>">カメラの買取り・下取り</a></li>
-                            <li class="nav__item"><a href="<?php echo home_url('/dubbing/'); ?>">ダビングサービス</a></li>
+                            <li class="nav__item"><a href="<?php echo home_url('/photo/'); ?>" class="<?php if (is_page('photo')) {
+                                                                                                            echo "current";
+                                                                                                        } ?>">撮影サービス</a></li>
+                            <li class="nav__item"><a href="<?php echo home_url('/contest/'); ?>" class="<?php if (is_page('contest')) {
+                                                                                                            echo "current";
+                                                                                                        } ?>">コンテストサポート</a></li>
+                            <li class="nav__item"><a href="<?php echo home_url('/trade/'); ?>" class="<?php if (is_page('trade')) {
+                                                                                                            echo "current";
+                                                                                                        } ?>">カメラの買取り・下取り</a></li>
+                            <li class="nav__item"><a href="<?php echo home_url('/dubbing/'); ?>" class="<?php if (is_page('dubbing')) {
+                                                                                                            echo "current";
+                                                                                                        } ?>">ダビングサービス</a></li>
                         </ul><!--/.nav__sub -->
                     </li><!-- /.nav__item -->
 

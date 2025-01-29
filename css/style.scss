@@ -126,6 +126,7 @@ header.transparent,
 .contactPage header {
     background-color: rgba(255, 242, 229, 0.8);
 }
+
 /* header nav全体 */
 .header__nav {
     position: relative;
@@ -186,12 +187,13 @@ header.transparent,
 
     &__item {
         position: relative;
+        width: fit-content;
         margin-bottom: (15em/16);
     }
 
     &__item a {
         display: block;
-        padding: 10px 15px;
+        padding: 10px 15px 3px;
         transition: 0.3s;
     }
 
@@ -206,8 +208,8 @@ header.transparent,
     /* サブメニュー (モバイル用: 初期非表示) */
     &__sub {
         flex-direction: column;
-        padding-left: 15px;
         font-weight: normal;
+        padding: 10px;
 
         @include m-query(PC) {
             display: none;
@@ -261,6 +263,10 @@ header.transparent,
         background-color: $color-sub;
         color: $color-bg;
     }
+}
+
+.header .current {
+    border-bottom: 2px solid $color-sub;
 }
 
 /* footer */

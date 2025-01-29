@@ -146,11 +146,14 @@ header.transparent,
 }
 .header .nav__item {
   position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   margin-bottom: 0.9375em;
 }
 .header .nav__item a {
   display: block;
-  padding: 10px 15px;
+  padding: 10px 15px 3px;
   transition: 0.3s;
 }
 .header .nav__item a:hover {
@@ -161,8 +164,8 @@ header.transparent,
 }
 .header .nav__sub {
   flex-direction: column;
-  padding-left: 15px;
   font-weight: normal;
+  padding: 10px;
 }
 @media (1100px <= width) {
   .header .nav__sub {
@@ -212,6 +215,10 @@ header.transparent,
 .header__menu:hover {
   background-color: #5f4c45;
   color: #f0dcc8;
+}
+
+.header .current {
+  border-bottom: 2px solid #5f4c45;
 }
 
 /* footer */
