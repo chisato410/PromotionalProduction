@@ -4,22 +4,22 @@
             <div class="footer__info">
                 <div class="footer__logo">
                     <a href="<?php echo home_url('/'); ?>">
-                        <img src="<?php echo get_theme_file_uri('./image/footer-logo.svg'); ?>" alt="みゆきカメラ">
+                        <img src="<?php echo get_theme_file_uri('./image/footer-logo.svg'); ?>" alt="みゆきカメラ" width="200px" height="110px">
                     </a>
                 </div><!-- /.footer__logo -->
                 <p>〒496-0801<br class="SP">愛知県津島市藤浪町4-35-1</p>
                 <p>TEL 0567-26-0287</p>
                 <p>定休日 木曜日・第四日曜日</p>
                 <div class="footer__sns">
-                    <a href="https://www.instagram.com/miyukicamera1973/?hl=ja"><img src="<?php echo get_theme_file_uri('./image/Instagram_logo.svg'); ?>" alt="Instagramへのリンク"></a>
-                    <a href="https://www.facebook.com/camera.miyuki/?locale=ja_JP"><img src="<?php echo get_theme_file_uri('./image/Facebook_Logo.svg'); ?>" alt="facebookへのリンク"></a>
+                    <a href="https://www.instagram.com/miyukicamera1973/?hl=ja"><img src="<?php echo get_theme_file_uri('./image/Instagram_logo.svg'); ?>" alt="Instagramへのリンク" width="27px" height="27px"></a>
+                    <a href="https://www.facebook.com/camera.miyuki/?locale=ja_JP"><img src="<?php echo get_theme_file_uri('./image/Facebook_Logo.svg'); ?>" alt="facebookへのリンク" width="27px" height="27px"></a>
                 </div><!-- /.footer__sns -->
                 <div class="footer__contact footer__contact--pc">
                     <a class="footer__btn" href="<?php echo home_url('/contact/'); ?>"><span class="footer__balloon">分からないことがある…</span>お問い合わせする</a>
                 </div>
                 <div class="footer__contact footer__contact--sp">
                     <a class="footer__btn" href="<?php echo home_url('/contact/'); ?>">
-                        <img src="<?php echo get_theme_file_uri('./image/mail.svg'); ?>" alt="お問い合わせ">
+                        <img src="<?php echo get_theme_file_uri('./image/mail.svg'); ?>" alt="お問い合わせ" width="40px" height="40px">
                     </a>
                 </div>
 

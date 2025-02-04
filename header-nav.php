@@ -2,7 +2,7 @@
     <div class="header__inner">
         <a href="<?php echo home_url('/'); ?>">
             <h1 class="header__logo">
-                <img src="<?php echo get_theme_file_uri('./image/logo.svg'); ?>" alt="みゆきカメラ">
+                <img src="<?php echo get_theme_file_uri('./image/logo.svg'); ?>" alt="みゆきカメラ" width="200px" height="110px">
             </h1><!-- /.header__logo -->
         </a>
 

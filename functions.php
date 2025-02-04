@@ -119,7 +119,11 @@ function display_manual_pdf_widget()
     // PDFリンクを表示
     echo '<p>こちらは操作マニュアルです。ご不明な点があればこちらをご覧ください。</p>';
     echo '<p>操作マニュアルはPDF形式です。</p>';
-    echo '<p>ログイン方法<a href="https://example.com/manual.pdf" target="_blank" style="font-weight: bold; text-decoration: none; color: #0073aa;">操作マニュアルを閲覧する</a></p>';
+    echo '<p><a href="https://410hz.vivian.jp/manual/login.pdf" target="_blank" style="font-weight: bold; text-decoration: none; color: #0073aa;">ログイン方法</a></p>';
+    echo '<p><a href="https://410hz.vivian.jp/manual/menu.pdf" target="_blank" style="font-weight: bold; text-decoration: none; color: #0073aa;">上部と左側のメニューについて</a></p>';
+    echo '<p><a href="https://410hz.vivian.jp/manual/price.pdf" target="_blank" style="font-weight: bold; text-decoration: none; color: #0073aa;">価格の変更について</a></p>';
+    echo '<p><a href="https://410hz.vivian.jp/manual/gallery.pdf" target="_blank" style="font-weight: bold; text-decoration: none; color: #0073aa;">ギャラリーの更新について</a></p>';
+    echo '<p><a href="https://410hz.vivian.jp/manual/contest.pdf" target="_blank" style="font-weight: bold; text-decoration: none; color: #0073aa;">コンテストの更新について</a></p>';
     echo '<p>何かご不明点があれば、管理者にお問い合わせください。</p>';
 }
 

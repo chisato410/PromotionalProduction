@@ -7,7 +7,7 @@
     <main class="main" id="photo">
         <section class="mv hero">
             <div class="mv__img">
-                <img src="<?php echo get_theme_file_uri('./image/camera2.gif'); ?>" alt="">
+                <img src="<?php echo get_theme_file_uri('./image/camera2.gif'); ?>" alt="" width="400px" height="400px">
             </div><!-- /.mv__img -->
             <div class="mv__intro">
                 <div class="mv__inner">
@@ -73,9 +73,10 @@
                 </h3><!-- /.set__title -->
                 <div class="set__list">
                     <article class="set__item unit">
-                        <div class="unit__img">
-                            <img src="<?php echo get_theme_file_uri('./image/job.jpg'); ?>" alt="">
-                        </div><!-- /.unit__img -->
+                        <picture class="unit__img">
+                            <source srcset="<?php echo get_theme_file_uri('./image/job.webp'); ?>" type="image/webp">
+                            <img src="<?php echo get_theme_file_uri('./image/job.jpg'); ?>" alt="" width="340px" height="243px">
+                        </picture><!-- /.unit__img -->
                         <h4 class="unit__title">
                             就職活動セット
                         </h4><!-- /.unit__title -->
@@ -91,9 +92,10 @@
                         </div><!-- /.unit__price -->
                     </article><!-- /.set__item /.unit-->
                     <article class="set__item unit">
-                        <div class="unit__img">
-                            <img src="<?php echo get_theme_file_uri('./image/visa.jpg'); ?>" alt="">
-                        </div><!-- /.unit__img -->
+                        <picture class="unit__img">
+                            <source srcset="<?php echo get_theme_file_uri('./image/visa.webp'); ?>" type="image/webp">
+                            <img src="<?php echo get_theme_file_uri('./image/visa.jpg'); ?>" alt="" width="340px" height="243px">
+                        </picture><!-- /.unit__img -->
                         <h4 class="unit__title">
                             ビザ申請用写真
                         </h4><!-- /.unit__title -->
@@ -119,9 +121,10 @@
 
                 <div class="option__list">
                     <article class="option__item unit">
-                        <div class="unit__img">
-                            <img src="<?php echo get_theme_file_uri('./image/option1.jpg'); ?>" alt="">
-                        </div><!-- /.unit__img -->
+                        <picture class="unit__img">
+                            <source srcset="<?php echo get_theme_file_uri('./image/option1.webp'); ?>" type="image/webp">
+                            <img src="<?php echo get_theme_file_uri('./image/option1.jpg'); ?>" alt="" width="340px" height="243px">
+                        </picture><!-- /.unit__img -->
                         <h4 class="unit__title">
                             美肌加工
                         </h4><!-- /.unit__title -->
@@ -135,9 +138,10 @@
                         </div><!-- /.unit__price -->
                     </article><!-- /.option__item /.unit-->
                     <article class="option__item unit">
-                        <div class="unit__img">
-                            <img src="<?php echo get_theme_file_uri('./image/hair.jpg'); ?>" alt="">
-                        </div><!-- /.unit__img -->
+                        <picture class="unit__img">
+                            <source srcset="<?php echo get_theme_file_uri('./image/hair.webp'); ?>" type="image/webp">
+                            <img src="<?php echo get_theme_file_uri('./image/hair.jpg'); ?>" alt="" width="340px" height="243px">
+                        </picture><!-- /.unit__img -->
                         <h4 class="unit__title">
                             髪色変更
                         </h4><!-- /.unit__title -->

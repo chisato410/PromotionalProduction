@@ -7,7 +7,7 @@
     <main class="main" id="contest">
         <section class="mv hero">
             <div class="mv__img">
-                <img src="<?php echo get_theme_file_uri('./image/contest2.gif'); ?>" alt="">
+                <img src="<?php echo get_theme_file_uri('./image/contest2.gif'); ?>" alt="" width="400px" height="400px">
             </div><!-- /.mv__img -->
             <div class="mv__intro">
                 <div class="mv__inner">
@@ -32,25 +32,27 @@
                 </h3><!-- /.contest__title -->
                 <article class="contest__item">
                     <?php
-                    if (has_post_thumbnail()):
-                        the_post_thumbnail('thumbnail');
-                    else:
-                    ?>
-                        <img src="<?php echo get_theme_file_uri('./image/contestSample.jpg'); ?>" alt="">
-                    <?php
-                    endif;
-                    ?>
+                    $args = array(
+                        'post_type' => 'contest_list',
+                    );
 
-                    <div class="contest__info">
-                        <?php
-                        $args = array(
-                            'post_type' => 'contestList',
-                        );
+                    $the_query = new WP_Query($args);
+                    ?>
+                    <?php if ($the_query->have_posts()): ?>
+                        <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                            <div class="contest__img">
+                                <?php
+                                if (has_post_thumbnail()):
+                                    the_post_thumbnail('thumbnail');
+                                else:
+                                ?>
+                                    <img src="<?php echo get_theme_file_uri('./image/contestSample.jpg'); ?>" alt="" width="455px" height="455px">
+                                <?php
+                                endif;
+                                ?>
+                            </div>
 
-                        $the_query = new WP_Query($args);
-                        ?>
-                        <?php if ($the_query->have_posts()): ?>
-                            <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                            <div class="contest__info">
                                 <h4 class="contest__title"><?php the_title(); ?></h4>
                                 <div class="contest__description"><?php the_content(); ?></div>
                             <?php endwhile; ?>
@@ -58,7 +60,7 @@
                             <p>募集中のコンテストはありません。</p>
                         <?php endif; ?>
                         <?php wp_reset_postdata(); ?>
-                    </div><!-- /.contest__info -->
+                            </div><!-- /.contest__info -->
                 </article><!-- /.contest___item -->
                 <a href="<?php echo home_url('/#service'); ?>" class="btn btn--service">サービス一覧へ戻る</a><!-- /.btn -->
             </div><!-- /.contest__inner -->

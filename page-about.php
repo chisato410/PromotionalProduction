@@ -10,7 +10,7 @@
                 <article class="content__item">
                     <picture class="content__img">
                         <source type="image/webp" srcset="<?php echo get_theme_file_uri('./image/aboutImg.webp'); ?>" alt="">
-                        <img src="<?php echo get_theme_file_uri('./image/aboutImg.jpg'); ?>" alt="">
+                        <img src="<?php echo get_theme_file_uri('./image/aboutImg.jpg'); ?>" alt="" width="1080px" height="1080px">
                     </picture><!-- /.content__img -->
                     <div class="content__text">
                         <p>写真展やSNSで作品を共有</p>
@@ -32,12 +32,12 @@
                 <div class="staff__list ">
                     <article class="staff__item unit ">
                         <picture class="unit__img ">
-                            <source class="staff__img staff__img--yoshiki" srcset="image/staff_yoshiki.webp" type="<?php echo get_theme_file_uri('./image/staff_yoshiki.jpg'); ?>">
-                            <img class="staff__img staff__img--yoshiki" src="<?php echo get_theme_file_uri('./image/staff_yoshiki.jpg'); ?>" alt="">
+                            <source class="staff__img staff__img--yoshiki" srcset="<?php echo get_theme_file_uri('./image/staff_yoshiki.webp'); ?>" type="image/webp">
+                            <img class="staff__img staff__img--yoshiki" src="<?php echo get_theme_file_uri('/image/staff_yoshiki.jpg'); ?>" alt="">
                         </picture><!-- /.unit__img -->
-                        <h4 class="unit__title">
+                        <h3 class="unit__title">
                             店長　yoshiki
-                        </h4><!-- /.unit__title -->
+                        </h3><!-- /.unit__title -->
                         <div class="unit__text">
                             <p>休みの日もスナップ写真、
                                 <br>ネイチャー写真の撮影に出掛けます。
@@ -49,12 +49,12 @@
 
                     <article class="staff__item unit ">
                         <picture class="unit__img">
-                            <source class="staff__img staff__img--maki" srcset="image/staff_maki.webp" type="<?php echo get_theme_file_uri('./image/staff_maki.jpg'); ?>">
+                            <source class="staff__img staff__img--maki" srcset="<?php echo get_theme_file_uri('./image/staff_maki.webp'); ?>" type="image/webp">
                             <img class="staff__img staff__img--maki" src="<?php echo get_theme_file_uri('./image/staff_maki.jpg'); ?>" alt="">
                         </picture><!-- /.unit__img -->
-                        <h4 class="unit__title">
+                        <h3 class="unit__title">
                             maki
-                        </h4><!-- /.unit__title -->
+                        </h3><!-- /.unit__title -->
                         <div class="unit__text">
                             <p>Photoshopで写真の加工ができます。
                                 <br>オリジナルの年賀状を作成しております。
@@ -66,12 +66,12 @@
 
                     <article class="staff__item unit">
                         <picture class="unit__img">
-                            <source class="staff__img staff__img--mariko" srcset="image/staff_mariko.webp" type="<?php echo get_theme_file_uri('./image/staff_mariko.jpg'); ?>">
+                            <source class="staff__img staff__img--mariko" srcset="<?php echo get_theme_file_uri('./image/staff_mariko.webp'); ?>" type="image/webp">
                             <img class="staff__img staff__img--mariko" src="<?php echo get_theme_file_uri('./image/staff_mariko.jpg'); ?>" alt="">
                         </picture><!-- /.unit__img -->
-                        <h4 class="unit__title">
+                        <h3 class="unit__title">
                             mariko
-                        </h4><!-- /.unit__title -->
+                        </h3><!-- /.unit__title -->
                         <div class="unit__text">
                             <p>写真屋で50年以上の経験を積んでいるベテランです。
                                 <br>なんでもお任せください！
@@ -132,7 +132,7 @@
 
                     <picture class="info__img">
                         <source type="image/webp" srcset="<?php echo get_theme_file_uri('./image/info.webp'); ?>" alt="">
-                        <img src="<?php echo get_theme_file_uri('./image/info.jpg'); ?>" alt="">
+                        <img src="<?php echo get_theme_file_uri('./image/info.jpg'); ?>" alt="" width="548px" height="720px">
                     </picture><!-- /.info__img -->
                 </div><!-- /.info__body -->
                 <a href="<?php echo home_url(); ?>" class="btn">トップページへ戻る</a><!-- /.btn -->
